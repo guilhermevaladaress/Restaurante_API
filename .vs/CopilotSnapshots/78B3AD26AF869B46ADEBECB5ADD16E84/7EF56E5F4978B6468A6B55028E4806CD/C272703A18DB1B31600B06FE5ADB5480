@@ -1,0 +1,17 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=RestauranteDb;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true"
+  },                             
+  "Jwt": {
+    "Key": "RESTAURANTE_API_CHAVE_SUPER_SECRETA_2026",
+    "Issuer": "Restaurante.API",
+    "Audience": "Restaurante.Frontend"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}

@@ -1,0 +1,15 @@
+﻿namespace Restaurante.API.Models
+{
+    public class AtendimentoDeliveryProprio : Atendimento
+    {
+        public decimal TaxaEntrega { get; set; }
+        public string EnderecoEntrega { get; set; } = string.Empty;
+
+        public AtendimentoDeliveryProprio()
+        {
+            Tipo = TipoAtendimento.DeliveryProprio;
+        }
+
+        public override decimal CalcularTaxa(decimal valorPedido) => TaxaEntrega;
+    }
+}

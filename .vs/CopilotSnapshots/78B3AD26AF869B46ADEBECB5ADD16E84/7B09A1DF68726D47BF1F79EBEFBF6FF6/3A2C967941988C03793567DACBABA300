@@ -1,0 +1,51 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Restaurante.API.Data;
+using Restaurante.API.DTOs.Cardapio;
+using Restaurante.API.Models;
+
+namespace Restaurante.API.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class CardapioController : ControllerBase
+    {
+        private readonly AppDbContext _context;
+
+        public CardapioController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ItemCardapioResponseDto>>> Get([FromQuery] PeriodoRefeicao periodo)
+        {
+            var hoje = DateOnly.FromDateTime(DateTime.Now);
+
+            var sugestaoItemId = await _context.SugestoesChefe
+                .AsNoTracking()
+                .Where(s => s.Data == hoje && s.Periodo == periodo)
+                .Select(s => (int?)s.ItemCardapioId)
+                .FirstOrDefaultAsync();
+
+            var itens = await _context.ItensCardapio
+                .AsNoTracking()
+                .Where(i => i.Ativo && i.Periodo == periodo)
+                .Select(i => new ItemCardapioResponseDto
+                {
+                    Id = i.Id,
+                    Nome = i.Nome,
+                    Descricao = i.Descricao,
+                    PrecoBase = i.PrecoBase,
+                    Periodo = i.Periodo,
+                    EhSugestaoChefeHoje = sugestaoItemId.HasValue && sugestaoItemId.Value == i.Id,
+                    PrecoComDescontoHoje = sugestaoItemId.HasValue && sugestaoItemId.Value == i.Id
+                        ? i.PrecoBase * 0.8m
+                        : i.PrecoBase
+                })
+                .ToListAsync();
+
+            return Ok(itens);
+        }
+    }
+}

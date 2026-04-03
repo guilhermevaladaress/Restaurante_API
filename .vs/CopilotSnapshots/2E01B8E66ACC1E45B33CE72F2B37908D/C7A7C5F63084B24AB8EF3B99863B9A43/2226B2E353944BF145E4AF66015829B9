@@ -1,0 +1,643 @@
+﻿# 📱 Documentação - Frontend Angular
+
+## 🌐 Informações de Conexão
+
+### URL Base da API
+```
+http://localhost:5233/api
+https://localhost:7025/api (HTTPS)
+```
+
+### Ambiente de Desenvolvimento
+```
+Port: 4200 (sua aplicação Angular)
+CORS habilitado para: http://localhost:4200
+```
+
+---
+
+## 🔐 Autenticação
+
+### Tipo de Autenticação: JWT (JSON Web Token)
+
+#### Estrutura do Token
+- **Tipo**: Bearer Token
+- **Duração**: 8 horas
+- **Algoritmo**: HS256 (HMAC SHA-256)
+- **Claims inclusos**:
+  - `sub` - User ID
+  - `email` - Email do usuário
+  - `nameid` - Identificador único
+  - `name` - Nome completo do usuário
+  - `jti` - ID único do token
+
+#### Como Usar o Token
+Adicione o header em todas as requisições autenticadas:
+```http
+Authorization: Bearer {token_recebido}
+```
+
+---
+
+## 👤 Endpoints de Autenticação
+
+### 1. Registrar Novo Usuário
+```http
+POST /api/auth/register
+Content-Type: application/json
+```
+
+**Request Body:**
+```json
+{
+  "nomeCompleto": "João Silva",
+  "email": "joao@example.com",
+  "password": "SenhaForte123!"
+}
+```
+
+**Validações:**
+- Nome completo: 3-120 caracteres
+- Email: válido e não registrado previamente
+- Senha: mínimo 6 caracteres
+
+**Response (200 OK):**
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "expiresAt": "2025-03-28T12:00:00Z",
+  "userId": "user-id-uuid",
+  "nomeCompleto": "João Silva",
+  "email": "joao@example.com"
+}
+```
+
+**Erros Possíveis:**
+- `400` - Email já cadastrado ou dados inválidos
+- `400` - ValidationProblem com detalhes dos erros
+
+---
+
+### 2. Login
+```http
+POST /api/auth/login
+Content-Type: application/json
+```
+
+**Request Body:**
+```json
+{
+  "email": "joao@example.com",
+  "password": "SenhaForte123!"
+}
+```
+
+**Response (200 OK):**
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "expiresAt": "2025-03-28T12:00:00Z",
+  "userId": "user-id-uuid",
+  "nomeCompleto": "João Silva",
+  "email": "joao@example.com"
+}
+```
+
+**Erros Possíveis:**
+- `401` - Credenciais inválidas
+- `400` - ValidationProblem
+
+---
+
+## 🍽️ Endpoints do Cardápio
+
+### 1. Listar Itens do Cardápio
+```http
+GET /api/cardapio?periodo={periodo}
+```
+
+**Parâmetros Query:**
+- `periodo` (enum): Obrigatório
+  - `0` = Café da Manhã
+  - `1` = Almoço
+  - `2` = Lanche
+  - `3` = Jantar
+
+**Response (200 OK):**
+```json
+[
+  {
+    "id": 1,
+    "nome": "Hambúrguer Premium",
+    "descricao": "Hambúrguer com queijo derretido e bacon",
+    "precoBase": 35.90,
+    "periodo": 3,
+    "ehSugestaoChefeHoje": true,
+    "precoComDescontoHoje": 28.72
+  }
+]
+```
+
+**Características:**
+- Retorna apenas itens ativos (`Ativo = true`)
+- Filtra por período
+- Mostra se é sugestão do chef do dia (desconto 20%)
+- Sem autenticação necessária
+
+---
+
+## 🛒 Endpoints de Pedidos
+
+### 1. Criar Pedido
+```http
+POST /api/pedidos
+Authorization: Bearer {token}
+Content-Type: application/json
+```
+
+**Request Body:**
+```json
+{
+  "periodo": 3,
+  "tipoAtendimento": 0,
+  "numeroMesa": 5,
+  "itens": [
+    {
+      "itemCardapioId": 1,
+      "quantidade": 2
+    },
+    {
+      "itemCardapioId": 3,
+      "quantidade": 1
+    }
+  ]
+}
+```
+
+**Tipos de Atendimento:**
+- `0` = Presencial (requer `numeroMesa`)
+- `1` = Delivery Próprio (requer `taxaEntrega` e `enderecoEntrega`)
+- `2` = Delivery Aplicativo (requer `aplicativoNome`)
+
+**Validações:**
+- Todos os itens devem estar ativos
+- Todos os itens devem ser do mesmo período
+- Para presencial: número da mesa > 0
+- Para delivery próprio: taxa >= 0 e endereço preenchido
+- Quantidade deve ser > 0
+
+**Response (201 Created):**
+```json
+{
+  "id": 1,
+  "usuarioId": "user-id-uuid",
+  "dataHora": "2025-03-27T12:30:00Z",
+  "status": 0,
+  "periodo": 3,
+  "tipoAtendimento": 0,
+  "total": 70.50
+}
+```
+
+**Erros Possíveis:**
+- `400` - Itens inválidos ou inativos
+- `400` - Itens de períodos diferentes
+- `401` - Não autenticado
+- `409` - Erro ao criar pedido
+
+---
+
+### 2. Listar Meus Pedidos
+```http
+GET /api/pedidos
+Authorization: Bearer {token}
+```
+
+**Response (200 OK):**
+```json
+[
+  {
+    "id": 1,
+    "usuarioId": "user-id-uuid",
+    "dataHora": "2025-03-27T12:30:00Z",
+    "status": 0,
+    "periodo": 3,
+    "tipoAtendimento": 0,
+    "total": 70.50,
+    "itens": [
+      {
+        "itemCardapioId": 1,
+        "quantidade": 2,
+        "precoUnitario": 35.90
+      }
+    ]
+  }
+]
+```
+
+---
+
+### 3. Atualizar Status do Pedido (Admin)
+```http
+PUT /api/pedidos/{pedidoId}/status
+Authorization: Bearer {token}
+Content-Type: application/json
+```
+
+**Request Body:**
+```json
+{
+  "status": 1
+}
+```
+
+**Status Disponíveis:**
+- `0` = Pendente
+- `1` = Confirmado
+- `2` = Em Preparo
+- `3` = Pronto
+- `4` = Cancelado
+
+**Requer Role:** Admin
+
+---
+
+## 📅 Endpoints de Reservas
+
+### 1. Criar Reserva
+```http
+POST /api/reservas
+Authorization: Bearer {token}
+Content-Type: application/json
+```
+
+**Request Body:**
+```json
+{
+  "dataHora": "2025-03-28T19:30:00Z",
+  "numerMesa": 5,
+  "quantidadePessoas": 4,
+  "observacoes": "Preferência de mesa perto da janela"
+}
+```
+
+**Validações:**
+- Data/Hora deve ser no futuro
+- Horário permitido: 19h às 22h (jantar)
+- Mesa não pode estar reservada em intervalo de ±2 horas
+- Quantidade de pessoas > 0
+
+**Response (201 Created):**
+```json
+{
+  "id": 1,
+  "usuarioId": "user-id-uuid",
+  "dataHora": "2025-03-28T19:30:00Z",
+  "numerMesa": 5,
+  "quantidadePessoas": 4,
+  "observacoes": "Preferência de mesa perto da janela",
+  "status": 0,
+  "dataCancelamento": null
+}
+```
+
+**Erros Possíveis:**
+- `400` - Data/Hora no passado
+- `400` - Horário fora do permitido (19h-22h)
+- `409` - Mesa já reservada para este horário
+- `401` - Não autenticado
+
+---
+
+### 2. Listar Minhas Reservas
+```http
+GET /api/reservas
+Authorization: Bearer {token}
+```
+
+**Response (200 OK):**
+```json
+[
+  {
+    "id": 1,
+    "usuarioId": "user-id-uuid",
+    "dataHora": "2025-03-28T19:30:00Z",
+    "numerMesa": 5,
+    "quantidadePessoas": 4,
+    "observacoes": "Preferência de mesa perto da janela",
+    "status": 0,
+    "dataCancelamento": null
+  }
+]
+```
+
+---
+
+### 3. Cancelar Reserva
+```http
+PUT /api/reservas/{reservaId}/cancelar
+Authorization: Bearer {token}
+```
+
+**Response (200 OK):**
+```json
+{
+  "message": "Reserva cancelada com sucesso"
+}
+```
+
+**Erros Possíveis:**
+- `404` - Reserva não encontrada
+- `403` - Reserva pertence a outro usuário
+- `400` - Reserva já cancelada
+
+---
+
+## 📊 Endpoints de Endereços
+
+### 1. Salvar Endereço de Entrega
+```http
+POST /api/enderecos
+Authorization: Bearer {token}
+Content-Type: application/json
+```
+
+**Request Body:**
+```json
+{
+  "rua": "Rua das Flores",
+  "numero": "123",
+  "complemento": "Apto 45",
+  "bairro": "Centro",
+  "cidade": "São Paulo",
+  "estado": "SP",
+  "cep": "01234-567",
+  "referencia": "Próximo ao mercado"
+}
+```
+
+**Response (201 Created):**
+```json
+{
+  "id": 1,
+  "usuarioId": "user-id-uuid",
+  "rua": "Rua das Flores",
+  "numero": "123",
+  "complemento": "Apto 45",
+  "bairro": "Centro",
+  "cidade": "São Paulo",
+  "estado": "SP",
+  "cep": "01234-567",
+  "referencia": "Próximo ao mercado"
+}
+```
+
+---
+
+### 2. Listar Meus Endereços
+```http
+GET /api/enderecos
+Authorization: Bearer {token}
+```
+
+**Response (200 OK):**
+```json
+[
+  {
+    "id": 1,
+    "usuarioId": "user-id-uuid",
+    "rua": "Rua das Flores",
+    "numero": "123",
+    "complemento": "Apto 45",
+    "bairro": "Centro",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "01234-567",
+    "referencia": "Próximo ao mercado"
+  }
+]
+```
+
+---
+
+## 🍽️ Enums (Constantes)
+
+### PeriodoRefeicao
+```typescript
+export enum PeriodoRefeicao {
+  CaféDaManhã = 0,
+  Almoço = 1,
+  Lanche = 2,
+  Jantar = 3
+}
+```
+
+### TipoAtendimento
+```typescript
+export enum TipoAtendimento {
+  Presencial = 0,
+  DeliveryProprio = 1,
+  DeliveryAplicativo = 2
+}
+```
+
+### StatusPedido
+```typescript
+export enum StatusPedido {
+  Pendente = 0,
+  Confirmado = 1,
+  EmPreparo = 2,
+  Pronto = 3,
+  Cancelado = 4
+}
+```
+
+### StatusReserva
+```typescript
+export enum StatusReserva {
+  Pendente = 0,
+  Confirmada = 1,
+  Cancelada = 2
+}
+```
+
+---
+
+## 🛡️ Tratamento de Erros
+
+### Padrão de Erro Padrão
+```json
+{
+  "message": "Descrição do erro"
+}
+```
+
+### Validation Problem (400)
+```json
+{
+  "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "errors": {
+    "Email": [
+      "The Email field is required."
+    ],
+    "Password": [
+      "The field Password must be a string or array type with a minimum length of '6'."
+    ]
+  }
+}
+```
+
+### Códigos HTTP
+- `200` - OK
+- `201` - Created
+- `400` - Bad Request
+- `401` - Unauthorized
+- `403` - Forbidden
+- `404` - Not Found
+- `409` - Conflict
+- `500` - Internal Server Error
+
+---
+
+## 📋 Roles de Usuário
+
+- **Cliente** (role padrão para novos usuários)
+  - Pode criar pedidos e reservas
+  - Pode visualizar seu cardápio
+  - Pode gerenciar seus endereços
+
+- **Admin** (atribuído manualmente)
+  - Pode criar itens do cardápio
+  - Pode gerenciar ingredientes
+  - Pode atualizar status de pedidos
+  - Pode gerenciar sugestões do chef
+
+---
+
+## 🔧 Configurações Necessárias (appsettings.json)
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "seu_connection_string"
+  },
+  "Jwt": {
+    "Key": "sua_chave_secreta_muito_longa_com_32_caracteres_minimo",
+    "Issuer": "seu_issuer",
+    "Audience": "sua_audience"
+  }
+}
+```
+
+---
+
+## 💡 Boas Práticas para o Frontend
+
+### 1. Armazenar Token
+```typescript
+// Armazene no localStorage após login
+localStorage.setItem('token', response.token);
+localStorage.setItem('expiresAt', response.expiresAt);
+localStorage.setItem('userId', response.userId);
+localStorage.setItem('nomeCompleto', response.nomeCompleto);
+```
+
+### 2. Interceptor HTTP
+Crie um interceptor para adicionar o token automaticamente:
+```typescript
+@Injectable()
+export class JwtInterceptor implements HttpInterceptor {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const token = localStorage.getItem('token');
+    if (token) {
+      req = req.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+    }
+    return next.handle(req);
+  }
+}
+```
+
+### 3. Verificar Expiração do Token
+```typescript
+isTokenExpired(): boolean {
+  const expiresAt = localStorage.getItem('expiresAt');
+  if (!expiresAt) return true;
+  return new Date(expiresAt) <= new Date();
+}
+```
+
+### 4. Lidar com Autenticação Expirada
+Limpe o localStorage e redirecione para login quando receber 401.
+
+---
+
+## 🧪 Swagger/OpenAPI
+
+Acesse a documentação interativa da API em:
+```
+http://localhost:5233/swagger/index.html
+https://localhost:7025/swagger/index.html
+```
+
+Você pode testar todos os endpoints diretamente no Swagger UI!
+
+---
+
+## 📝 Exemplo de Fluxo Completo (Frontend)
+
+### 1. Registrar/Login
+```typescript
+// 1. Fazer login
+this.authService.login(email, password).subscribe(response => {
+  // Armazenar token
+  localStorage.setItem('token', response.token);
+  // Redirecionar para home
+  this.router.navigate(['/home']);
+});
+```
+
+### 2. Buscar Cardápio
+```typescript
+// 2. Listar cardápio para almoço
+this.cardapioService.listar(PeriodoRefeicao.Almoço).subscribe(itens => {
+  this.itensCardapio = itens;
+});
+```
+
+### 3. Criar Pedido
+```typescript
+// 3. Criar pedido com itens selecionados
+this.pedidosService.criar({
+  periodo: 1,
+  tipoAtendimento: 0,
+  numeroMesa: 5,
+  itens: [
+    { itemCardapioId: 1, quantidade: 2 }
+  ]
+}).subscribe(pedido => {
+  alert('Pedido criado com sucesso!');
+  // Redirecionar para meus pedidos
+  this.router.navigate(['/meus-pedidos']);
+});
+```
+
+---
+
+## 📞 Suporte
+
+Se tiver dúvidas sobre a API, acesse:
+- Swagger: http://localhost:5233/swagger ou https://localhost:7025/swagger
+- Repositório: https://github.com/guilhermevaladaress/Restaurante_API
+
+---
+
+**Última atualização**: 27/03/2025  
+**Versão da API**: 1.0  
+**Versão Angular Recomendada**: 18+  
+**Versão Node**: 18+

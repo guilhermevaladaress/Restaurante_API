@@ -1,0 +1,95 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Restaurante.API.Data;
+using Restaurante.API.DTOs.SugestaoChefe;
+using Restaurante.API.Models;
+
+namespace Restaurante.API.Controllers
+{
+    [ApiController]
+    [Route("api/sugestoes-chefe")]
+    public class SugestoesChefeController : ControllerBase
+    {
+        private readonly AppDbContext _context;
+
+        public SugestoesChefeController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet("hoje")]
+        public async Task<IActionResult> ObterHoje([FromQuery] PeriodoRefeicao periodo)
+        {
+            var hoje = DateOnly.FromDateTime(DateTime.Now);
+
+            var sugestao = await _context.SugestoesChefe
+                .AsNoTracking()
+                .Include(s => s.ItemCardapio)
+                .FirstOrDefaultAsync(s => s.Data == hoje && s.Periodo == periodo);
+
+            if (sugestao is null)
+                return NotFound(new { message = "Não há Sugestão do Chefe para hoje nesse período." });
+
+            return Ok(new
+            {
+                sugestao.Id,
+                sugestao.Data,
+                sugestao.Periodo,
+                sugestao.PercentualDesconto,
+                Item = new
+                {
+                    sugestao.ItemCardapio.Id,
+                    sugestao.ItemCardapio.Nome,
+                    sugestao.ItemCardapio.Descricao,
+                    sugestao.ItemCardapio.PrecoBase,
+                    PrecoComDesconto = sugestao.ItemCardapio.PrecoBase * (1 - sugestao.PercentualDesconto / 100)
+                }
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Definir([FromBody] DefinirSugestaoChefeRequestDto request)
+        {
+            if (request.ItemCardapioId <= 0)
+                return BadRequest(new { message = "ItemCardapioId inválido." });
+
+            var item = await _context.ItensCardapio
+                .FirstOrDefaultAsync(i => i.Id == request.ItemCardapioId && i.Ativo);
+
+            if (item is null)
+                return NotFound(new { message = "Item do cardápio não encontrado ou inativo." });
+
+            if (item.Periodo != request.Periodo)
+                return BadRequest(new { message = "O item informado não pertence ao período selecionado." });
+
+            var jaExiste = await _context.SugestoesChefe
+                .AnyAsync(s => s.Data == request.Data && s.Periodo == request.Periodo);
+
+            if (jaExiste)
+                return Conflict(new { message = "Já existe Sugestão do Chefe para essa data e período." });
+
+            var sugestao = new SugestaoChefe
+            {
+                Data = request.Data,
+                Periodo = request.Periodo,
+                ItemCardapioId = request.ItemCardapioId,
+                PercentualDesconto = 20m
+            };
+
+            _context.SugestoesChefe.Add(sugestao);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(
+                nameof(ObterHoje),
+                new { periodo = request.Periodo },
+                new
+                {
+                    sugestao.Id,
+                    sugestao.Data,
+                    sugestao.Periodo,
+                    sugestao.ItemCardapioId,
+                    sugestao.PercentualDesconto
+                });
+        }
+    }
+}

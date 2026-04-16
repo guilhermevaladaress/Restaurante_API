@@ -35,6 +35,13 @@ namespace Restaurante.API.Controllers
             if (string.IsNullOrWhiteSpace(usuarioId))
                 return Unauthorized();
 
+            var usuarioExiste = await _context.Users
+                .AsNoTracking()
+                .AnyAsync(u => u.Id == usuarioId);
+
+            if (!usuarioExiste)
+                return Unauthorized(new { message = "Usuário autenticado não encontrado. Faça login novamente." });
+
             var itemIds = request.Itens.Select(i => i.ItemCardapioId).Distinct().ToList();
             var itensCardapio = await _context.ItensCardapio
                 .Where(i => itemIds.Contains(i.Id) && i.Ativo)

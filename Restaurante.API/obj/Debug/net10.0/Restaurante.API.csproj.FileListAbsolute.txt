@@ -152,7 +152,6 @@ C:\Users\Guilherme\Documents\RestauranteBack\Restaurante\Restaurante.API\obj\Deb
 C:\Users\Guilherme\Documents\RestauranteBack\Restaurante\Restaurante.API\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\Guilherme\Documents\RestauranteBack\Restaurante\Restaurante.API\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\Guilherme\Documents\RestauranteBack\Restaurante\Restaurante.API\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\Guilherme\Documents\RestauranteBack\Restaurante\Restaurante.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\Guilherme\Documents\RestauranteBack\Restaurante\Restaurante.API\obj\Debug\net10.0\Restaura.A78C6D71.Up2Date
 C:\Users\Guilherme\Documents\RestauranteBack\Restaurante\Restaurante.API\obj\Debug\net10.0\Restaurante.API.dll
 C:\Users\Guilherme\Documents\RestauranteBack\Restaurante\Restaurante.API\obj\Debug\net10.0\refint\Restaurante.API.dll
@@ -325,3 +324,6 @@ C:\Users\Guilherme\Documents\RestauranteProjeto\Restaurante\Restaurante.API\obj\
 C:\Users\Guilherme\Documents\RestauranteProjeto\Restaurante\Restaurante.API\obj\Debug\net10.0\Restaurante.API.pdb
 C:\Users\Guilherme\Documents\RestauranteProjeto\Restaurante\Restaurante.API\obj\Debug\net10.0\Restaurante.API.genruntimeconfig.cache
 C:\Users\Guilherme\Documents\RestauranteProjeto\Restaurante\Restaurante.API\obj\Debug\net10.0\ref\Restaurante.API.dll
+C:\Users\Guilherme\Documents\RestauranteBack\Restaurante\Restaurante.API\bin\Debug\net10.0\appsettings.example.json
+C:\Users\Guilherme\Documents\RestauranteBack\Restaurante\Restaurante.API\obj\Debug\net10.0\Restaurante.API.sourcelink.json
+C:\Users\Guilherme\Documents\RestauranteBack\Restaurante\Restaurante.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

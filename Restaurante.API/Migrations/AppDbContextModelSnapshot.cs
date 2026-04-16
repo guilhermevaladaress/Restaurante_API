@@ -252,6 +252,14 @@ namespace Restaurante.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImagemBase64")
+                        .HasColumnType("varchar(max)");
+
+                    b.Property<string>("ImagemMimeType")
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

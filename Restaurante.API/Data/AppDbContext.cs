@@ -45,6 +45,15 @@ namespace Restaurante.API.Data
                 .Property(i => i.PrecoBase)
                 .HasPrecision(10, 2);
 
+            modelBuilder.Entity<ItemCardapio>()
+                .Property(i => i.ImagemBase64)
+                .HasColumnType("varchar(max)");
+
+            modelBuilder.Entity<ItemCardapio>()
+                .Property(i => i.ImagemMimeType)
+                .HasMaxLength(100)
+                .IsUnicode(false);
+
             modelBuilder.Entity<PedidoItem>()
                 .Property(pi => pi.PrecoUnitario)
                 .HasPrecision(10, 2);

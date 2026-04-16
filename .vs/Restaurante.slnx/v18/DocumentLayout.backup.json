@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\documentacao_frontend.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:documentacao_frontend.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\data\\cardapioseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\data\\cardapioseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\data\\ingredientesseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\data\\ingredientesseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +22,45 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DOCUMENTACAO_FRONTEND.md",
-              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\DOCUMENTACAO_FRONTEND.md",
-              "RelativeDocumentMoniker": "DOCUMENTACAO_FRONTEND.md",
-              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\DOCUMENTACAO_FRONTEND.md",
-              "RelativeToolTip": "DOCUMENTACAO_FRONTEND.md",
-              "ViewState": "AgIAAE4CAAAAAAAAAAAqwFgCAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-04-03T16:38:36.372Z",
+              "DocumentIndex": 2,
+              "Title": "IngredientesSeedData.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\IngredientesSeedData.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Data\\IngredientesSeedData.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\IngredientesSeedData.cs",
+              "RelativeToolTip": "Restaurante.API\\Data\\IngredientesSeedData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T12:30:47.894Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\appsettings.json",
-              "RelativeDocumentMoniker": "Restaurante.API\\appsettings.json",
-              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\appsettings.json",
-              "RelativeToolTip": "Restaurante.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-03T16:33:46.462Z",
+              "Title": "DbInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\DbInitializer.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Data\\DbInitializer.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\DbInitializer.cs",
+              "RelativeToolTip": "Restaurante.API\\Data\\DbInitializer.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T12:30:29.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CardapioSeedData.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\CardapioSeedData.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Data\\CardapioSeedData.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\CardapioSeedData.cs",
+              "RelativeToolTip": "Restaurante.API\\Data\\CardapioSeedData.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T00:42:20.847Z",
               "EditorCaption": ""
             },
             {

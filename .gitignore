@@ -1,0 +1,32 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build output
+**/bin/
+**/obj/
+**/out/
+**/TestResults/
+
+# .NET local tooling
+.idea/
+.vscode/
+*.rsuser
+
+# Logs
+*.log
+
+# Environment and local secrets
+.env
+.env.*
+!.env.example
+Restaurante.API/appsettings.json
+Restaurante.API/appsettings.Development.json
+Restaurante.API/appsettings.Local.json
+
+# OS files
+Thumbs.db
+Desktop.ini

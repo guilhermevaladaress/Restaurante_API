@@ -15,6 +15,8 @@
         public decimal PrecoBase { get; set; }
         public PeriodoRefeicao Periodo { get; set; }
         public bool Ativo { get; set; } = true;
+        public string? ImagemBase64 { get; set; }
+        public string? ImagemMimeType { get; set; }
 
 
         public ICollection<ItemCardapioIngrediente> ItemCardapioIngredientes { get; set; }

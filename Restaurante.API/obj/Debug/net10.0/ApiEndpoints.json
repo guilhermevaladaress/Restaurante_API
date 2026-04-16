@@ -75,6 +75,53 @@
   },
   {
     "ContainingType": "Restaurante.API.Controllers.CardapioController",
+    "Method": "Editar",
+    "RelativePath": "api/Cardapio/{itemId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itemId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Restaurante.API.DTOs.Cardapio.CriarItemCardapioRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Restaurante.API.DTOs.Cardapio.ItemCardapioResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Restaurante.API.Controllers.CardapioController",
+    "Method": "Excluir",
+    "RelativePath": "api/Cardapio/{itemId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itemId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Restaurante.API.Controllers.CardapioController",
     "Method": "VincularIngredientes",
     "RelativePath": "api/Cardapio/{itemId}/ingredientes",
     "HttpMethod": "POST",
@@ -89,6 +136,100 @@
       {
         "Name": "request",
         "Type": "Restaurante.API.DTOs.Cardapio.VincularIngredientesRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Restaurante.API.Controllers.CardapioController",
+    "Method": "ObterMidia",
+    "RelativePath": "api/Cardapio/{itemId}/midia",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itemId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Restaurante.API.DTOs.Cardapio.ItemCardapioMidiaResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Restaurante.API.Controllers.CardapioController",
+    "Method": "AtualizarMidia",
+    "RelativePath": "api/Cardapio/{itemId}/midia",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itemId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Imagem",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "RemoverImagem",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Restaurante.API.DTOs.Cardapio.ItemCardapioMidiaResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Restaurante.API.Controllers.CardapioController",
+    "Method": "CriarAlmoco",
+    "RelativePath": "api/Cardapio/almoco",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Restaurante.API.DTOs.Cardapio.CriarPratoPorPeriodoRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Restaurante.API.Controllers.CardapioController",
+    "Method": "CriarJantar",
+    "RelativePath": "api/Cardapio/jantar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Restaurante.API.DTOs.Cardapio.CriarPratoPorPeriodoRequestDto",
         "IsRequired": true
       }
     ],
@@ -327,6 +468,26 @@
   },
   {
     "ContainingType": "Restaurante.API.Controllers.ReservasController",
+    "Method": "Listar",
+    "RelativePath": "api/Reservas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Restaurante.API.DTOs.Reservas.ReservaAdminResponseDto, Restaurante.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Restaurante.API.Controllers.ReservasController",
     "Method": "Criar",
     "RelativePath": "api/Reservas",
     "HttpMethod": "POST",
@@ -365,7 +526,17 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Restaurante.API.DTOs.Reservas.ReservaResponseDto, Restaurante.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "Restaurante.API.Controllers.SugestoesChefeController",

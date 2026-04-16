@@ -20,6 +20,32 @@ namespace Restaurante.API.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        [Authorize(Roles = IdentityInitializer.AdminRole)]
+        public async Task<ActionResult<IEnumerable<ReservaAdminResponseDto>>> Listar()
+        {
+            var reservas = await _context.Reservas
+                .AsNoTracking()
+                .Include(r => r.Usuario)
+                .OrderBy(r => r.DataHora)
+                .ThenBy(r => r.NumerMesa)
+                .Select(r => new ReservaAdminResponseDto
+                {
+                    Id = r.Id,
+                    DataHora = r.DataHora,
+                    NumerMesa = r.NumerMesa,
+                    NumeroPessoas = r.NumeroPessoas,
+                    Status = r.Status,
+                    CodigoConfirmacao = r.CodigoConfirmacao,
+                    UsuarioId = r.UsuarioId,
+                    NomeCliente = r.Usuario.NomeCompleto,
+                    EmailCliente = r.Usuario.Email ?? string.Empty
+                })
+                .ToListAsync();
+
+            return Ok(reservas);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Criar([FromBody] CriarReservaRequestDto request)
         {
@@ -64,19 +90,11 @@ namespace Restaurante.API.Controllers
             _context.Reservas.Add(reserva);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(Minhas), new { }, new
-            {
-                reserva.Id,
-                reserva.DataHora,
-                reserva.NumerMesa,
-                reserva.NumeroPessoas,
-                reserva.Status,
-                reserva.CodigoConfirmacao
-            });
+            return CreatedAtAction(nameof(Minhas), new { }, MapReserva(reserva));
         }
 
         [HttpGet("minhas")]
-        public async Task<IActionResult> Minhas()
+        public async Task<ActionResult<IEnumerable<ReservaResponseDto>>> Minhas()
         {
             var usuarioId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrWhiteSpace(usuarioId))
@@ -86,14 +104,14 @@ namespace Restaurante.API.Controllers
                 .AsNoTracking()
                 .Where(r => r.UsuarioId == usuarioId)
                 .OrderByDescending(r => r.DataHora)
-                .Select(r => new
+                .Select(r => new ReservaResponseDto
                 {
-                    r.Id,
-                    r.DataHora,
-                    r.NumerMesa,
-                    r.NumeroPessoas,
-                    r.Status,
-                    r.CodigoConfirmacao
+                    Id = r.Id,
+                    DataHora = r.DataHora,
+                    NumerMesa = r.NumerMesa,
+                    NumeroPessoas = r.NumeroPessoas,
+                    Status = r.Status,
+                    CodigoConfirmacao = r.CodigoConfirmacao
                 })
                 .ToListAsync();
 
@@ -124,6 +142,19 @@ namespace Restaurante.API.Controllers
                 reserva.Id,
                 reserva.Status
             });
+        }
+
+        private static ReservaResponseDto MapReserva(Reserva reserva)
+        {
+            return new ReservaResponseDto
+            {
+                Id = reserva.Id,
+                DataHora = reserva.DataHora,
+                NumerMesa = reserva.NumerMesa,
+                NumeroPessoas = reserva.NumeroPessoas,
+                Status = reserva.Status,
+                CodigoConfirmacao = reserva.CodigoConfirmacao
+            };
         }
     }
 }

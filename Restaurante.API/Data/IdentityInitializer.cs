@@ -19,31 +19,88 @@ namespace Restaurante.API.Data
             if (!await roleManager.RoleExistsAsync(ClienteRole))
                 await roleManager.CreateAsync(new IdentityRole(ClienteRole));
 
+            var usersToSeed = BuildUsersToSeed(configuration);
+            foreach (var seedUser in usersToSeed)
+            {
+                await EnsureUserAsync(userManager, seedUser);
+            }
+        }
+
+        private static IReadOnlyList<SeedUser> BuildUsersToSeed(IConfiguration configuration)
+        {
             var adminEmail = configuration["AdminSeed:Email"];
             var adminPassword = configuration["AdminSeed:Password"];
-            var adminNome = configuration["AdminSeed:NomeCompleto"] ?? "Administrador";
+            var adminNome = configuration["AdminSeed:NomeCompleto"];
 
-            if (string.IsNullOrWhiteSpace(adminEmail) || string.IsNullOrWhiteSpace(adminPassword))
-                return;
+            var admin = string.IsNullOrWhiteSpace(adminEmail) || string.IsNullOrWhiteSpace(adminPassword)
+                ? new SeedUser("Administrador", "admin@restaurante.com", "Admin@123", AdminRole)
+                : new SeedUser(adminNome ?? "Administrador", adminEmail, adminPassword, AdminRole);
 
-            var admin = await userManager.FindByEmailAsync(adminEmail);
-            if (admin is null)
+            return
+            [
+                admin,
+                new SeedUser("Cliente Teste 1", "cliente1@restaurante.com", "Cliente@123", ClienteRole),
+                new SeedUser("Cliente Teste 2", "cliente2@restaurante.com", "Cliente@123", ClienteRole),
+                new SeedUser("Cliente Teste 3", "cliente3@restaurante.com", "Cliente@123", ClienteRole)
+            ];
+        }
+
+        private static async Task EnsureUserAsync(UserManager<Usuario> userManager, SeedUser seedUser)
+        {
+            var user = await userManager.FindByEmailAsync(seedUser.Email);
+
+            if (user is null)
             {
-                admin = new Usuario
+                user = new Usuario
                 {
-                    NomeCompleto = adminNome,
-                    Email = adminEmail,
-                    UserName = adminEmail,
+                    NomeCompleto = seedUser.NomeCompleto,
+                    Email = seedUser.Email,
+                    UserName = seedUser.Email,
                     EmailConfirmed = true
                 };
 
-                var create = await userManager.CreateAsync(admin, adminPassword);
-                if (!create.Succeeded)
+                var createResult = await userManager.CreateAsync(user, seedUser.Password);
+                if (!createResult.Succeeded)
                     return;
             }
+            else
+            {
+                var needsUpdate = false;
 
-            if (!await userManager.IsInRoleAsync(admin, AdminRole))
-                await userManager.AddToRoleAsync(admin, AdminRole);
+                if (user.NomeCompleto != seedUser.NomeCompleto)
+                {
+                    user.NomeCompleto = seedUser.NomeCompleto;
+                    needsUpdate = true;
+                }
+
+                if (!user.EmailConfirmed)
+                {
+                    user.EmailConfirmed = true;
+                    needsUpdate = true;
+                }
+
+                if (string.IsNullOrWhiteSpace(user.UserName))
+                {
+                    user.UserName = seedUser.Email;
+                    needsUpdate = true;
+                }
+
+                if (needsUpdate)
+                {
+                    var updateResult = await userManager.UpdateAsync(user);
+                    if (!updateResult.Succeeded)
+                        return;
+                }
+            }
+
+            if (!await userManager.IsInRoleAsync(user, seedUser.Role))
+                await userManager.AddToRoleAsync(user, seedUser.Role);
         }
+
+        private sealed record SeedUser(
+            string NomeCompleto,
+            string Email,
+            string Password,
+            string Role);
     }
 }

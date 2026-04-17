@@ -12,6 +12,7 @@ namespace Restaurante.API.Controllers
     [Route("api/[controller]")]
     public class CardapioController : ControllerBase
     {
+        private const int LimiteItensPorPeriodo = 20;
         private const long MaxImagemBytes = 5L * 1024 * 1024;
         private const long MaxUploadRequestBytes = 10L * 1024 * 1024;
 
@@ -44,11 +45,17 @@ namespace Restaurante.API.Controllers
 
             var itens = await _context.ItensCardapio
                 .AsNoTracking()
+                .Include(i => i.ItemCardapioIngredientes)
+                .ThenInclude(ii => ii.Ingrediente)
                 .Where(i => i.Ativo && i.Periodo == periodo)
                 .OrderBy(i => i.Nome)
                 .ToListAsync();
 
-            return Ok(itens.Select(item => MapItemResponse(item, sugestaoItemId, percentualDesconto)));
+            return Ok(itens.Select(item => MapItemResponse(
+                item,
+                sugestaoItemId,
+                percentualDesconto,
+                ObterNomesIngredientes(item))));
         }
 
         [HttpGet("{itemId:int}/midia")]
@@ -121,6 +128,21 @@ namespace Restaurante.API.Controllers
             var item = await _context.ItensCardapio.FirstOrDefaultAsync(i => i.Id == itemId);
             if (item is null)
                 return NotFound(new { message = "Item do cardapio nao encontrado." });
+
+            if (request.Ativo)
+            {
+                var itemIgnorado = item.Ativo && item.Periodo == request.Periodo
+                    ? (int?)item.Id
+                    : null;
+
+                if (await LimiteDeItensAtivosAtingidoAsync(request.Periodo, itemIgnorado))
+                {
+                    return Conflict(new
+                    {
+                        message = $"Limite de {LimiteItensPorPeriodo} itens para {request.Periodo} atingido."
+                    });
+                }
+            }
 
             item.Nome = request.Nome;
             item.Descricao = request.Descricao;
@@ -254,6 +276,14 @@ namespace Restaurante.API.Controllers
             PeriodoRefeicao periodo,
             bool ativo)
         {
+            if (ativo && await LimiteDeItensAtivosAtingidoAsync(periodo))
+            {
+                return Conflict(new
+                {
+                    message = $"Limite de {LimiteItensPorPeriodo} itens para {periodo} atingido."
+                });
+            }
+
             var item = new ItemCardapio
             {
                 Nome = nome,
@@ -275,16 +305,26 @@ namespace Restaurante.API.Controllers
             var hoje = DateOnly.FromDateTime(DateTime.Now);
             var sugestaoHoje = await _sugestaoChefeService.ObterParaDataAsync(hoje, item.Periodo);
 
+            var nomesIngredientes = await _context.ItemCardapioIngredientes
+                .AsNoTracking()
+                .Where(ii => ii.ItemCardapioId == item.Id)
+                .Select(ii => ii.Ingrediente.Nome)
+                .Distinct()
+                .OrderBy(nome => nome)
+                .ToListAsync();
+
             return MapItemResponse(
                 item,
                 sugestaoHoje?.ItemCardapioId,
-                sugestaoHoje?.PercentualDesconto ?? 0m);
+                sugestaoHoje?.PercentualDesconto ?? 0m,
+                nomesIngredientes);
         }
 
         private static ItemCardapioResponseDto MapItemResponse(
             ItemCardapio item,
             int? sugestaoItemId,
-            decimal percentualDesconto)
+            decimal percentualDesconto,
+            IReadOnlyList<string> ingredientes)
         {
             var ehSugestaoHoje = sugestaoItemId.HasValue && sugestaoItemId.Value == item.Id;
 
@@ -296,6 +336,7 @@ namespace Restaurante.API.Controllers
                 PrecoBase = item.PrecoBase,
                 Periodo = item.Periodo,
                 Ativo = item.Ativo,
+                Ingredientes = ingredientes,
                 PossuiImagem = !string.IsNullOrWhiteSpace(item.ImagemBase64),
                 ImagemBase64 = item.ImagemBase64,
                 ImagemMimeType = item.ImagemMimeType,
@@ -304,6 +345,27 @@ namespace Restaurante.API.Controllers
                     ? item.PrecoBase * (1 - percentualDesconto / 100m)
                     : item.PrecoBase
             };
+        }
+
+        private static IReadOnlyList<string> ObterNomesIngredientes(ItemCardapio item)
+        {
+            return item.ItemCardapioIngredientes
+                .Select(ii => ii.Ingrediente.Nome)
+                .Where(nome => !string.IsNullOrWhiteSpace(nome))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(nome => nome)
+                .ToList();
+        }
+
+        private async Task<bool> LimiteDeItensAtivosAtingidoAsync(PeriodoRefeicao periodo, int? itemIdIgnorado = null)
+        {
+            var quantidade = await _context.ItensCardapio
+                .AsNoTracking()
+                .Where(i => i.Ativo && i.Periodo == periodo)
+                .Where(i => !itemIdIgnorado.HasValue || i.Id != itemIdIgnorado.Value)
+                .CountAsync();
+
+            return quantidade >= LimiteItensPorPeriodo;
         }
 
         private static ItemCardapioMidiaResponseDto MapMidiaResponse(ItemCardapio item)

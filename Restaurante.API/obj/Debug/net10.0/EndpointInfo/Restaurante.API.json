@@ -659,6 +659,225 @@
         }
       }
     },
+    "/api/Mesas": {
+      "post": {
+        "tags": [
+          "Mesas"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarMesaRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarMesaRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarMesaRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MesaResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MesaResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MesaResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Mesas"
+        ],
+        "parameters": [
+          {
+            "name": "dataHora",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MesaStatusResponseDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MesaStatusResponseDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MesaStatusResponseDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Mesas/{numero}": {
+      "get": {
+        "tags": [
+          "Mesas"
+        ],
+        "parameters": [
+          {
+            "name": "numero",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "pattern": "^-?(?:0|[1-9]\\d*)$",
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MesaResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MesaResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MesaResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Mesas/{id}": {
+      "put": {
+        "tags": [
+          "Mesas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "pattern": "^-?(?:0|[1-9]\\d*)$",
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarMesaRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarMesaRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarMesaRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MesaResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MesaResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MesaResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Mesas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "pattern": "^-?(?:0|[1-9]\\d*)$",
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Pedidos": {
       "post": {
         "tags": [
@@ -684,6 +903,16 @@
           },
           "required": true
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Pedidos"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -899,6 +1128,82 @@
         }
       }
     },
+    "/api/Reservas/configuracao-horario": {
+      "get": {
+        "tags": [
+          "Reservas"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfiguracaoHorarioReservaResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfiguracaoHorarioReservaResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfiguracaoHorarioReservaResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Reservas"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarConfiguracaoHorarioReservaRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarConfiguracaoHorarioReservaRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarConfiguracaoHorarioReservaRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfiguracaoHorarioReservaResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfiguracaoHorarioReservaResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfiguracaoHorarioReservaResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Reservas/minhas": {
       "get": {
         "tags": [
@@ -1017,6 +1322,49 @@
   },
   "components": {
     "schemas": {
+      "AtualizarConfiguracaoHorarioReservaRequestDto": {
+        "required": [
+          "horaInicio",
+          "horaFim"
+        ],
+        "type": "object",
+        "properties": {
+          "horaInicio": {
+            "type": "string"
+          },
+          "horaFim": {
+            "type": "string"
+          }
+        }
+      },
+      "AtualizarMesaRequestDto": {
+        "type": "object",
+        "properties": {
+          "numero": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "capacidade": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "ativa": {
+            "type": "boolean"
+          }
+        }
+      },
       "AtualizarStatusPedidoRequestDto": {
         "required": [
           "status"
@@ -1025,6 +1373,17 @@
         "properties": {
           "status": {
             "$ref": "#/components/schemas/StatusPedido"
+          }
+        }
+      },
+      "ConfiguracaoHorarioReservaResponseDto": {
+        "type": "object",
+        "properties": {
+          "horaInicio": {
+            "type": "string"
+          },
+          "horaFim": {
+            "type": "string"
           }
         }
       },
@@ -1061,6 +1420,31 @@
           },
           "ativo": {
             "type": "boolean"
+          }
+        }
+      },
+      "CriarMesaRequestDto": {
+        "type": "object",
+        "properties": {
+          "numero": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "capacidade": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
           }
         }
       },
@@ -1288,6 +1672,12 @@
           "ativo": {
             "type": "boolean"
           },
+          "ingredientes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "possuiImagem": {
             "type": "boolean"
           },
@@ -1328,6 +1718,95 @@
           },
           "password": {
             "type": "string"
+          }
+        }
+      },
+      "MesaResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "numero": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "capacidade": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "ativa": {
+            "type": "boolean"
+          }
+        }
+      },
+      "MesaStatusResponseDto": {
+        "type": "object",
+        "properties": {
+          "reservada": {
+            "type": "boolean"
+          },
+          "reservaId": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "null",
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "dataHoraReserva": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "codigoConfirmacaoReserva": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "numero": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "capacidade": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "ativa": {
+            "type": "boolean"
           }
         }
       },
@@ -1530,6 +2009,9 @@
     },
     {
       "name": "Ingredientes"
+    },
+    {
+      "name": "Mesas"
     },
     {
       "name": "Pedidos"

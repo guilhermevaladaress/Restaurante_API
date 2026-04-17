@@ -39,9 +39,9 @@ namespace Restaurante.API.Data
             return
             [
                 admin,
-                new SeedUser("Cliente Teste 1", "cliente1@restaurante.com", "Cliente@123", ClienteRole),
-                new SeedUser("Cliente Teste 2", "cliente2@restaurante.com", "Cliente@123", ClienteRole),
-                new SeedUser("Cliente Teste 3", "cliente3@restaurante.com", "Cliente@123", ClienteRole)
+                new SeedUser("Mariana Almeida", "cliente1@restaurante.com", "Cliente@123", ClienteRole),
+                new SeedUser("Rafael Costa", "cliente2@restaurante.com", "Cliente@123", ClienteRole),
+                new SeedUser("Juliana Rocha", "cliente3@restaurante.com", "Cliente@123", ClienteRole)
             ];
         }
 

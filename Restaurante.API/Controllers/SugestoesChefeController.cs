@@ -66,11 +66,25 @@ namespace Restaurante.API.Controllers
             if (item.Periodo != request.Periodo)
                 return BadRequest(new { message = "O item informado não pertence ao período selecionado." });
 
-            var jaExiste = await _context.SugestoesChefe
-                .AnyAsync(s => s.Data == request.Data && s.Periodo == request.Periodo);
+            var sugestaoExistente = await _context.SugestoesChefe
+                .FirstOrDefaultAsync(s => s.Data == request.Data && s.Periodo == request.Periodo);
 
-            if (jaExiste)
-                return Conflict(new { message = "Já existe Sugestão do Chefe para essa data e período." });
+            if (sugestaoExistente is not null)
+            {
+                sugestaoExistente.ItemCardapioId = request.ItemCardapioId;
+                sugestaoExistente.PercentualDesconto = 20m;
+
+                await _context.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    sugestaoExistente.Id,
+                    sugestaoExistente.Data,
+                    sugestaoExistente.Periodo,
+                    sugestaoExistente.ItemCardapioId,
+                    sugestaoExistente.PercentualDesconto
+                });
+            }
 
             var sugestao = new SugestaoChefe
             {

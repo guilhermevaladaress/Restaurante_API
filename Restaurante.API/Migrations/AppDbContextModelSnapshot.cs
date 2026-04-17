@@ -178,6 +178,25 @@ namespace Restaurante.API.Migrations
                     b.UseTphMappingStrategy();
                 });
 
+            modelBuilder.Entity("Restaurante.API.Models.ConfiguracaoHorarioReserva", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<TimeSpan>("HoraFim")
+                        .HasColumnType("time");
+
+                    b.Property<TimeSpan>("HoraInicio")
+                        .HasColumnType("time");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ConfiguracoesHorarioReserva", (string)null);
+                });
+
             modelBuilder.Entity("Restaurante.API.Models.EnderecoEntrega", b =>
                 {
                     b.Property<int>("Id")
@@ -289,6 +308,31 @@ namespace Restaurante.API.Migrations
                     b.HasIndex("IngredienteId");
 
                     b.ToTable("ItemCardapioIngredientes", (string)null);
+                });
+
+            modelBuilder.Entity("Restaurante.API.Models.Mesa", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Ativa")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Capacidade")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Numero")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Numero")
+                        .IsUnique();
+
+                    b.ToTable("Mesas", (string)null);
                 });
 
             modelBuilder.Entity("Restaurante.API.Models.Pedido", b =>

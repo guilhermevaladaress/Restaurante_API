@@ -66,6 +66,13 @@ namespace Restaurante.API.Controllers
                     if (!request.NumeroMesa.HasValue || request.NumeroMesa.Value <= 0)
                         return BadRequest(new { message = "NumeroMesa é obrigatório para atendimento presencial." });
 
+                    var mesaExiste = await _context.Mesas
+                        .AsNoTracking()
+                        .AnyAsync(m => m.Numero == request.NumeroMesa.Value && m.Ativa);
+
+                    if (!mesaExiste)
+                        return BadRequest(new { message = "Mesa não cadastrada ou inativa." });
+
                     atendimento = new AtendimentoPresencial
                     {
                         DataHora = agora,
@@ -179,6 +186,45 @@ namespace Restaurante.API.Controllers
                     Itens = p.PedidoItens.Select(i => new
                     {
                         i.ItemCardapioId,
+                        i.Quantidade,
+                        i.PrecoUnitario,
+                        i.PercentualDesconto,
+                        i.PrecoFinal
+                    })
+                })
+                .ToListAsync();
+
+            return Ok(pedidos);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = IdentityInitializer.AdminRole)]
+        public async Task<IActionResult> ObterTodos()
+        {
+            var pedidos = await _context.Pedidos
+                .AsNoTracking()
+                .Include(p => p.Usuario)
+                .Include(p => p.Atendimento)
+                .Include(p => p.PedidoItens)
+                .ThenInclude(pi => pi.ItemCardapio)
+                .OrderByDescending(p => p.DataHora)
+                .Select(p => new
+                {
+                    p.Id,
+                    p.DataHora,
+                    p.Status,
+                    p.ValorTotal,
+                    TipoAtendimento = p.Atendimento.Tipo,
+                    Cliente = new
+                    {
+                        p.UsuarioId,
+                        p.Usuario.NomeCompleto,
+                        p.Usuario.Email
+                    },
+                    Itens = p.PedidoItens.Select(i => new
+                    {
+                        i.ItemCardapioId,
+                        NomeItem = i.ItemCardapio.Nome,
                         i.Quantidade,
                         i.PrecoUnitario,
                         i.PercentualDesconto,

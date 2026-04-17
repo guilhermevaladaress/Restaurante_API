@@ -3,16 +3,108 @@
   "WorkspaceRootPath": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\data\\cardapioseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\data\\cardapioseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\data\\enderecosseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\data\\enderecosseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\data\\pedidosseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\data\\pedidosseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\models\\pedidoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\models\\pedidoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\data\\ingredientesseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\data\\ingredientesseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\data\\identityinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\data\\identityinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\dtos\\mesas\\atualizarmesarequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\dtos\\mesas\\atualizarmesarequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\dtos\\mesas\\mesastatusresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\dtos\\mesas\\mesastatusresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\dtos\\mesas\\mesaresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\dtos\\mesas\\mesaresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\dtos\\mesas\\criarmesarequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\dtos\\mesas\\criarmesarequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\migrations\\20260413090000_addconfiguracaohorarioreserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\migrations\\20260413090000_addconfiguracaohorarioreserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\data\\ingredientesseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\data\\ingredientesseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\dtos\\reservas\\configuracaohorarioreservaresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\dtos\\reservas\\configuracaohorarioreservaresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\dtos\\reservas\\atualizarconfiguracaohorarioreservarequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\dtos\\reservas\\atualizarconfiguracaohorarioreservarequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\models\\configuracaohorarioreserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\models\\configuracaohorarioreserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\controllers\\cardapiocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\controllers\\cardapiocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\models\\itemcardapio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\models\\itemcardapio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\data\\cardapioseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\data\\cardapioseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\dtos\\cardapio\\itemcardapioresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\dtos\\cardapio\\itemcardapioresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\controllers\\mesascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\controllers\\mesascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|c:\\users\\guilherme\\documents\\restauranteback\\restaurante\\restaurante.api\\migrations\\20260413110000_addmesas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63E2902F-B438-D404-BF08-C0313A2BE142}|Restaurante.API\\Restaurante.API.csproj|solutionrelative:restaurante.api\\migrations\\20260413110000_addmesas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +114,106 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EnderecosSeedData.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\EnderecosSeedData.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Data\\EnderecosSeedData.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\EnderecosSeedData.cs",
+              "RelativeToolTip": "Restaurante.API\\Data\\EnderecosSeedData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T01:24:35.86Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "PedidoItem.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Models\\PedidoItem.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Models\\PedidoItem.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Models\\PedidoItem.cs",
+              "RelativeToolTip": "Restaurante.API\\Models\\PedidoItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T01:23:28.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Pedido.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Models\\Pedido.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Models\\Pedido.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Models\\Pedido.cs",
+              "RelativeToolTip": "Restaurante.API\\Models\\Pedido.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T00:24:22.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PedidosSeedData.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\PedidosSeedData.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Data\\PedidosSeedData.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\PedidosSeedData.cs",
+              "RelativeToolTip": "Restaurante.API\\Data\\PedidosSeedData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T01:23:19.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CriarMesaRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Mesas\\CriarMesaRequestDto.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\DTOs\\Mesas\\CriarMesaRequestDto.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Mesas\\CriarMesaRequestDto.cs",
+              "RelativeToolTip": "Restaurante.API\\DTOs\\Mesas\\CriarMesaRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T23:50:58.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Restaurante.API\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T21:52:10.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IdentityInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\IdentityInitializer.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Data\\IdentityInitializer.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\IdentityInitializer.cs",
+              "RelativeToolTip": "Restaurante.API\\Data\\IdentityInitializer.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAtwCwAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T21:53:00.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "IngredientesSeedData.cs",
               "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\IngredientesSeedData.cs",
               "RelativeDocumentMoniker": "Restaurante.API\\Data\\IngredientesSeedData.cs",
@@ -39,33 +226,237 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
+              "Title": "MesaResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Mesas\\MesaResponseDto.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\DTOs\\Mesas\\MesaResponseDto.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Mesas\\MesaResponseDto.cs",
+              "RelativeToolTip": "Restaurante.API\\DTOs\\Mesas\\MesaResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T23:51:10.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AtualizarMesaRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Mesas\\AtualizarMesaRequestDto.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\DTOs\\Mesas\\AtualizarMesaRequestDto.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Mesas\\AtualizarMesaRequestDto.cs",
+              "RelativeToolTip": "Restaurante.API\\DTOs\\Mesas\\AtualizarMesaRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T00:25:07.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MesaStatusResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Mesas\\MesaStatusResponseDto.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\DTOs\\Mesas\\MesaStatusResponseDto.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Mesas\\MesaStatusResponseDto.cs",
+              "RelativeToolTip": "Restaurante.API\\DTOs\\Mesas\\MesaStatusResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T23:51:17.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "20260413110000_AddMesas.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Migrations\\20260413110000_AddMesas.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Migrations\\20260413110000_AddMesas.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Migrations\\20260413110000_AddMesas.cs",
+              "RelativeToolTip": "Restaurante.API\\Migrations\\20260413110000_AddMesas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T23:51:34.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "PedidosController.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Controllers\\PedidosController.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Controllers\\PedidosController.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Controllers\\PedidosController.cs",
+              "RelativeToolTip": "Restaurante.API\\Controllers\\PedidosController.cs",
+              "ViewState": "AgIAAOsAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T23:50:38.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "MesasController.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Controllers\\MesasController.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Controllers\\MesasController.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Controllers\\MesasController.cs",
+              "RelativeToolTip": "Restaurante.API\\Controllers\\MesasController.cs",
+              "ViewState": "AgIAAKAAAAAAAAAAAIBJwK8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T23:51:28.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "20260413090000_AddConfiguracaoHorarioReserva.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Migrations\\20260413090000_AddConfiguracaoHorarioReserva.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Migrations\\20260413090000_AddConfiguracaoHorarioReserva.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Migrations\\20260413090000_AddConfiguracaoHorarioReserva.cs",
+              "RelativeToolTip": "Restaurante.API\\Migrations\\20260413090000_AddConfiguracaoHorarioReserva.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAswB4AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T23:00:52.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ReservasController.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Controllers\\ReservasController.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Controllers\\ReservasController.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Controllers\\ReservasController.cs",
+              "RelativeToolTip": "Restaurante.API\\Controllers\\ReservasController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAnwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T23:00:43.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "DbInitializer.cs",
               "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\DbInitializer.cs",
               "RelativeDocumentMoniker": "Restaurante.API\\Data\\DbInitializer.cs",
               "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\DbInitializer.cs",
               "RelativeToolTip": "Restaurante.API\\Data\\DbInitializer.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAMwIwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-16T12:30:29.304Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Program.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Program.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Program.cs",
+              "RelativeToolTip": "Restaurante.API\\Program.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAowF8AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T23:23:26.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ConfiguracaoHorarioReservaResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Reservas\\ConfiguracaoHorarioReservaResponseDto.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\DTOs\\Reservas\\ConfiguracaoHorarioReservaResponseDto.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Reservas\\ConfiguracaoHorarioReservaResponseDto.cs",
+              "RelativeToolTip": "Restaurante.API\\DTOs\\Reservas\\ConfiguracaoHorarioReservaResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T23:00:22.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ConfiguracaoHorarioReserva.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Models\\ConfiguracaoHorarioReserva.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Models\\ConfiguracaoHorarioReserva.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Models\\ConfiguracaoHorarioReserva.cs",
+              "RelativeToolTip": "Restaurante.API\\Models\\ConfiguracaoHorarioReserva.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T23:00:17.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CardapioController.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Controllers\\CardapioController.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Controllers\\CardapioController.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Controllers\\CardapioController.cs",
+              "RelativeToolTip": "Restaurante.API\\Controllers\\CardapioController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T22:13:16.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AtualizarConfiguracaoHorarioReservaRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Reservas\\AtualizarConfiguracaoHorarioReservaRequestDto.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\DTOs\\Reservas\\AtualizarConfiguracaoHorarioReservaRequestDto.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Reservas\\AtualizarConfiguracaoHorarioReservaRequestDto.cs",
+              "RelativeToolTip": "Restaurante.API\\DTOs\\Reservas\\AtualizarConfiguracaoHorarioReservaRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T23:00:22.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Restaurante.API\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAE4BAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T23:01:00.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ItemCardapio.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Models\\ItemCardapio.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\Models\\ItemCardapio.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Models\\ItemCardapio.cs",
+              "RelativeToolTip": "Restaurante.API\\Models\\ItemCardapio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T22:07:51.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ItemCardapioResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Cardapio\\ItemCardapioResponseDto.cs",
+              "RelativeDocumentMoniker": "Restaurante.API\\DTOs\\Cardapio\\ItemCardapioResponseDto.cs",
+              "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\DTOs\\Cardapio\\ItemCardapioResponseDto.cs",
+              "RelativeToolTip": "Restaurante.API\\DTOs\\Cardapio\\ItemCardapioResponseDto.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAIBWwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T22:13:06.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "CardapioSeedData.cs",
               "DocumentMoniker": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\CardapioSeedData.cs",
               "RelativeDocumentMoniker": "Restaurante.API\\Data\\CardapioSeedData.cs",
               "ToolTip": "C:\\Users\\Guilherme\\Documents\\RestauranteBack\\Restaurante\\Restaurante.API\\Data\\CardapioSeedData.cs",
               "RelativeToolTip": "Restaurante.API\\Data\\CardapioSeedData.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-16T00:42:20.847Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

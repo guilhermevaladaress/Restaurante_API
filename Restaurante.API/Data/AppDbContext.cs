@@ -19,6 +19,8 @@ namespace Restaurante.API.Data
         public DbSet<PedidoItem> PedidoItens { get; set; }
         public DbSet<Atendimento> Atendimentos { get; set; }
         public DbSet<Reserva> Reservas { get; set; }
+        public DbSet<ConfiguracaoHorarioReserva> ConfiguracoesHorarioReserva { get; set; }
+        public DbSet<Mesa> Mesas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -76,6 +78,10 @@ namespace Restaurante.API.Data
 
             modelBuilder.Entity<SugestaoChefe>()
                 .HasIndex(s => new { s.Data, s.Periodo })
+                .IsUnique();
+
+            modelBuilder.Entity<Mesa>()
+                .HasIndex(m => m.Numero)
                 .IsUnique();
         }
 

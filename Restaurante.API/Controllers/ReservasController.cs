@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Restaurante.API.Data;
 using Restaurante.API.DTOs.Reservas;
 using Restaurante.API.Models;
+using System.Globalization;
 using System.Security.Claims;
 
 namespace Restaurante.API.Controllers
@@ -13,6 +14,9 @@ namespace Restaurante.API.Controllers
     [Authorize]
     public class ReservasController : ControllerBase
     {
+        private static readonly TimeSpan HorarioReservaPadraoInicio = new(11, 0, 0);
+        private static readonly TimeSpan HorarioReservaPadraoFim = new(15, 0, 0);
+
         private readonly AppDbContext _context;
 
         public ReservasController(AppDbContext context)
@@ -62,21 +66,46 @@ namespace Restaurante.API.Controllers
             if (request.DataHora.Date <= DateTime.Now.Date)
                 return BadRequest(new { message = "Reserva de almoço deve ser feita com pelo menos 1 dia de antecedência." });
 
-            var hora = request.DataHora.TimeOfDay;
-            if (hora < new TimeSpan(11, 0, 0) || hora > new TimeSpan(15, 0, 0))
-                return BadRequest(new { message = "Reserva permitida apenas no almoço (11h às 15h)." });
+            var mesa = await _context.Mesas
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.Numero == request.NumerMesa && m.Ativa);
 
-            var inicioJanela = request.DataHora.AddHours(-2);
-            var fimJanela = request.DataHora.AddHours(2);
+            if (mesa is null)
+                return BadRequest(new { message = "Mesa não cadastrada ou inativa." });
 
-            var mesaOcupada = await _context.Reservas.AnyAsync(r =>
+            if (request.NumeroPessoas > mesa.Capacidade)
+            {
+                return BadRequest(new
+                {
+                    message = $"Quantidade de pessoas ({request.NumeroPessoas}) excede a capacidade da mesa ({mesa.Capacidade})."
+                });
+            }
+
+            var inicioDia = request.DataHora.Date;
+            var fimDia = inicioDia.AddDays(1);
+
+            var reservaExistente = await _context.Reservas
+                .AsNoTracking()
+                .Where(r =>
                 r.NumerMesa == request.NumerMesa &&
                 r.Status == StatusReserva.Confirmada &&
-                r.DataHora >= inicioJanela &&
-                r.DataHora < fimJanela);
+                r.DataHora >= inicioDia &&
+                r.DataHora < fimDia)
+                .OrderBy(r => r.DataHora)
+                .Select(r => new
+                {
+                    r.Id,
+                    r.DataHora,
+                    r.CodigoConfirmacao
+                })
+                .FirstOrDefaultAsync();
 
-            if (mesaOcupada)
-                return Conflict(new { message = "Mesa já reservada para este horário." });
+            if (reservaExistente is not null)
+                return Conflict(new
+                {
+                    message = "Mesa já reservada para este dia.",
+                    reserva = reservaExistente
+                });
 
             var reserva = new Reserva
             {
@@ -91,6 +120,55 @@ namespace Restaurante.API.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(Minhas), new { }, MapReserva(reserva));
+        }
+
+        [HttpGet("configuracao-horario")]
+        [AllowAnonymous]
+        public async Task<ActionResult<ConfiguracaoHorarioReservaResponseDto>> ObterConfiguracaoHorario()
+        {
+            var configuracao = await ObterConfiguracaoHorarioReservaAsync();
+
+            return Ok(new ConfiguracaoHorarioReservaResponseDto
+            {
+                HoraInicio = FormatarHorario(configuracao.HoraInicio),
+                HoraFim = FormatarHorario(configuracao.HoraFim)
+            });
+        }
+
+        [HttpPut("configuracao-horario")]
+        [Authorize(Roles = IdentityInitializer.AdminRole)]
+        public async Task<ActionResult<ConfiguracaoHorarioReservaResponseDto>> AtualizarConfiguracaoHorario(
+            [FromBody] AtualizarConfiguracaoHorarioReservaRequestDto request)
+        {
+            if (!ModelState.IsValid)
+                return ValidationProblem(ModelState);
+
+            if (!TryParseHorario(request.HoraInicio, out var horaInicio) ||
+                !TryParseHorario(request.HoraFim, out var horaFim))
+            {
+                return BadRequest(new { message = "Informe os horários no formato HH:mm." });
+            }
+
+            if (horaInicio >= horaFim)
+                return BadRequest(new { message = "Hora de inicio deve ser menor que hora de fim." });
+
+            var configuracao = await _context.ConfiguracoesHorarioReserva.FirstOrDefaultAsync();
+            if (configuracao is null)
+            {
+                configuracao = new ConfiguracaoHorarioReserva();
+                _context.ConfiguracoesHorarioReserva.Add(configuracao);
+            }
+
+            configuracao.HoraInicio = horaInicio;
+            configuracao.HoraFim = horaFim;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new ConfiguracaoHorarioReservaResponseDto
+            {
+                HoraInicio = FormatarHorario(configuracao.HoraInicio),
+                HoraFim = FormatarHorario(configuracao.HoraFim)
+            });
         }
 
         [HttpGet("minhas")]
@@ -155,6 +233,33 @@ namespace Restaurante.API.Controllers
                 Status = reserva.Status,
                 CodigoConfirmacao = reserva.CodigoConfirmacao
             };
+        }
+
+        private async Task<ConfiguracaoHorarioReserva> ObterConfiguracaoHorarioReservaAsync()
+        {
+            var configuracao = await _context.ConfiguracoesHorarioReserva
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            return configuracao ?? new ConfiguracaoHorarioReserva
+            {
+                HoraInicio = HorarioReservaPadraoInicio,
+                HoraFim = HorarioReservaPadraoFim
+            };
+        }
+
+        private static string FormatarHorario(TimeSpan horario)
+        {
+            return $"{horario:hh\\:mm}";
+        }
+
+        private static bool TryParseHorario(string valor, out TimeSpan horario)
+        {
+            return TimeSpan.TryParseExact(
+                valor,
+                "hh\\:mm",
+                CultureInfo.InvariantCulture,
+                out horario);
         }
     }
 }

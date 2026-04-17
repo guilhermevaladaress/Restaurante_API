@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Restaurante.API.Middlewares;
@@ -74,9 +75,21 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<Usuario>>();
+    var logger = scope.ServiceProvider.GetRequiredService<ILoggerFactory>().CreateLogger("Startup");
 
-    await DbInitializer.SeedAsync(db);
+    try
+    {
+        await db.Database.MigrateAsync();
+    }
+    catch (SqlException ex) when (ex.Number == 2714)
+    {
+        logger.LogWarning(
+            ex,
+            "Banco já contém objetos de schema e o histórico de migrations está inconsistente. Seguindo sem aplicar migrations automáticas.");
+    }
+
     await IdentityInitializer.SeedAsync(roleManager, userManager, app.Configuration);
+    await DbInitializer.SeedAsync(db);
 }
 
 // Configure the HTTP request pipeline.
